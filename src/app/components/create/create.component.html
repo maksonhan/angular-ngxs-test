@@ -1,0 +1,7 @@
+<h1>TODO <span>cmx</span></h1>
+
+<div class="input-task">
+  <input id="todoTask" #nameTask placeholder="Что нужно выполнить?" (keydown.enter)="addTask(nameTask.value); nameTask.placeholder = 'Что нужно выполнить?'; nameTask.value ='' " type="text">
+  <button id="addTodo" (click)="addTask(nameTask.value); nameTask.placeholder = 'Что нужно выполнить?'; nameTask.value ='' ">Добавить</button>
+</div>
+

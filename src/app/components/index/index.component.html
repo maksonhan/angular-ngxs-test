@@ -1,0 +1,6 @@
+
+<div *ngIf="tasks" class="task-board">
+  <ul *ngFor="let task of tasks | async" id="getElements">
+    <li><span>Ваше задание на сегодня:</span>  {{ task.name }}  <button (click)="delTask(task.name)">x</button></li>
+  </ul>
+</div>
