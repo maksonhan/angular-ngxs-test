@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngxs/store';
 
 
@@ -10,13 +10,19 @@ import { AddTask } from '../../actions/task.action';
   styleUrls: ['./create.component.sass']
 })
 export class CreateComponent implements OnInit {
-
   constructor(private store: Store) { }
   addTask(name) {
+    if (name === '') {
+      alert('Не играйся с TODO! Введи задачу')
+      return false;
+    }
     this.store.dispatch(new AddTask({name}));
   }
 
   ngOnInit() {
   }
+
+
+
 
 }

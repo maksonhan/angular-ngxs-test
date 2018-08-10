@@ -1,6 +1,23 @@
 
-<div *ngIf="tasks" class="task-board">
-  <ul *ngFor="let task of tasks | async" id="getElements">
-    <li><span>Ваше задание на сегодня:</span>  {{ task.name }}  <button (click)="delTask(task.name)">x</button></li>
-  </ul>
-</div>
+<table *ngIf="tasks" class="task-board">
+  <tr *ngFor="let task of tasks | async" id="getElements">
+    <td>Ваше задание на сегодня:</td>
+    <td>{{ task.name }}</td>
+    <td><button class="check" (click)="checkTask(task.name)"><i class="fas fa-check"></i></button><button class="del" (click)="delTask(task.name)"><i class="fas fa-times"></i></button></td>
+  </tr>
+</table>
+
+
+<section class="done">
+
+  <h2>Послужной список</h2>
+
+  <table *ngIf="checkedTasks" class="checked-board">
+    <tr *ngFor="let task of checkedTasks | async">
+      <td class="close"><button class="del-check" (click)="delCheckedTask(task.name)"><i class="fas fa-times"></i></button></td>
+      <td class="made">Выполнено:</td>
+      <td class="task-text">{{ task.name }}</td>
+    </tr>
+  </table>
+
+</section>

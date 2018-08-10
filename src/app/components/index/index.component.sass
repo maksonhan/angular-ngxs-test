@@ -3,30 +3,95 @@
   margin: 80px auto 0px
   font-size: 20px
 
-  ul
+  tr
+    border-top: 1px solid #c4c4c4
+    width: 100%
     padding: 0px
-    li
-      padding: 25px
-      border-top: 1px solid #c4c4c4
-      text-align: center
-      list-style: none
-      position: relative
-      span
-        margin-right: 50px
-        font-weight: lighter
+    display: block
+    display: flex
+    align-items: baseline
+    td
+      padding: 35px
+      text-align: left
+      display: block
+      &:first-child
+        font-weight: 100
+        float: left
+        width: 250px
+      &:nth-child(2)
+        border-left: 1px solid #c4c4c4
+        padding-left: 30px
+        width: 600px
+        font-weight: 300
+      &:nth-child(3)
+        display: flex
+        justify-content: flex-end
+        padding-right: 0px
       button
-        position: absolute
-        right: 0px
-        top: 0px
         background-color: orangered
-        padding: 5px 10px
+        padding: 15px 20px
         color: #fff
         box-shadow: none
         border: 0px
-        font-size: 20px
+        font-size: 25px
         font-weight: 700
         transition: all .25s
         cursor: pointer
         opacity: 0.7
+        margin-right: 10px
         &:hover
           opacity: 1
+      .check
+        background-color: lightgreen
+          
+.done
+  margin-top: 350px
+
+  h2
+    font-size: 40px
+    font-weight: 200
+    text-transform: uppercase
+    text-align: center
+
+  .checked-board
+    width: 1200px
+    margin: 80px auto 0px
+    font-size: 20px
+    tr
+      align-items: stretch
+      border-top: none
+      margin-top: 2px
+      display: block
+      display: flex
+
+      td
+        display: flex
+        align-items: center
+        padding: 25px
+
+        .del-check
+          background-color: transparent
+          color: #333
+          box-shadow: none
+          border: 0px
+          font-size: 25px
+          font-weight: 700
+          transition: all .25s
+          cursor: pointer
+          opacity: 0.7
+          margin-right: 10px
+          &:hover
+            opacity: 1
+      .made
+        color: #fff
+        background-color: deepskyblue
+        width: 120px !important
+        padding: 25px
+      .task-text
+        border-left: none
+        flex: 1 0 auto
+        font-weight: 200
+        background-color: rgba(0, 255, 127, 0.5)
+        width: 600px
+
+    

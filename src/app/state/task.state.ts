@@ -2,25 +2,24 @@
 
 import { State, Action, StateContext, Selector} from '@ngxs/store';
 import { Task } from '../models/Task';
-import { AddTask, RemoveTask } from '../actions/task.action';
+import { AddTask, RemoveTask, CheckedTask, DelCheckedTask } from '../actions/task.action';
 
 
 export class TaskStateModel {
   tasks: Task[];
+  checkedTasks: Task[];
 }
 
 @State<TaskStateModel>({
   name: 'tasks',
   defaults: {
-    tasks: []
+    tasks: [],
+    checkedTasks: []
   }
 })
 
+
 export class TaskState {
-  @Selector()
-  static getTasks(state: TaskStateModel) {
-    return state.tasks;
-  }
   @Action(AddTask)
   add({getState, patchState}: StateContext<TaskStateModel>, {payload}: AddTask) {
     const state = getState();
@@ -32,6 +31,21 @@ export class TaskState {
   remove({getState, patchState}: StateContext<TaskStateModel>, {payload}: RemoveTask) {
     patchState({
       tasks: getState().tasks.filter(a => a.name !== payload)
+    });
+  }
+
+  @Action(CheckedTask)
+  checked({getState, patchState}: StateContext<TaskStateModel>, {payload}: CheckedTask) {
+    const state = getState();
+    patchState({
+      checkedTasks: [...state.checkedTasks, payload]
+    });
+  }
+
+  @Action(DelCheckedTask)
+  delChecked({getState, patchState}: StateContext<TaskStateModel>, {payload}: DelCheckedTask) {
+    patchState({
+      checkedTasks: getState().checkedTasks.filter(a => a.name !== payload)
     });
   }
 
