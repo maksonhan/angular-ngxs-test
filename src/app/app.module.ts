@@ -5,21 +5,40 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { AppComponent } from './app.component';
-import { CreateComponent } from './components/create/create.component';
-import { IndexComponent } from './components/index/index.component';
-import { TaskState } from './state/task.state';
 
+import { HeroesState, TaskState } from './store/state/index';
+import { HeroesComponent } from './pages/heroes/heroes.component';
+import { RouterModule } from '@angular/router';
+import { TodoComponent } from './pages/todo/todo.component';
+import { CreateComponent } from './components/forTodo/create/create.component';
+import { CheckedComponent } from './components/forTodo/checked/checked.component';
+import { HeroespersonsComponent } from './components/marvel/heroespersons/heroespersons.component';
+import { DataheroesComponent } from './components/marvel/dataheroes/dataheroes.component';
+import { CreateHeroComponent } from './components/marvel/createhero/createhero.component';
+
+
+const routes = [
+  {path: '', component: TodoComponent},
+  {path: 'heroes', component: HeroesComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
-    IndexComponent
+    CheckedComponent,
+    HeroesComponent,
+    TodoComponent,
+    HeroespersonsComponent,
+    DataheroesComponent,
+    CreateHeroComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     NgxsModule.forRoot([
-      TaskState
+      TaskState,
+      HeroesState
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),

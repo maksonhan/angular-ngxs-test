@@ -1,0 +1,14 @@
+
+<div class="form">
+  <div class="inputs">
+    <input type="text" placeholder="имя героя" #HeroName>
+    <input type="text" placeholder="скилы" #HeroSkills>
+    <input type="text" placeholder="расса" #HeroRace>
+  </div>
+  <div class="buttons">
+    <button (click)="addHero(HeroName.value, HeroSkills.value, HeroRace.value)" class="create-new-hero">Создать нового героя</button>
+    <button class="create-random">Рандомный персонаж</button>
+  </div>
+</div>
+
+

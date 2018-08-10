@@ -1,4 +1,5 @@
-import { Task } from '../models/Task';
+import { Task } from '../../core/models/Task';
+
 
 export class AddTask {
   static readonly type = '[Task] Add';

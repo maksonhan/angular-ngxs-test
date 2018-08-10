@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { Task } from '../../models/Task';
+import { Task } from 'src/app/core/models/Task';
 import { Observable } from 'rxjs';
-import { RemoveTask, CheckedTask, DelCheckedTask } from '../../actions/task.action';
+import { CheckedTask, DelCheckedTask, RemoveTask } from '../../../store/actions/task.action';
+
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.sass']
+  selector: 'app-checked',
+  templateUrl: './checked.component.html',
+  styleUrls: ['./checked.component.sass']
 })
-export class IndexComponent implements OnInit {
+export class CheckedComponent implements OnInit {
 
   tasks: Observable<Task>;
   checkedTasks: Observable<Task>;

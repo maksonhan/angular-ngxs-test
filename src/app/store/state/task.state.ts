@@ -1,8 +1,7 @@
 // task.action.ts
-
 import { State, Action, StateContext, Selector} from '@ngxs/store';
-import { Task } from '../models/Task';
 import { AddTask, RemoveTask, CheckedTask, DelCheckedTask } from '../actions/task.action';
+import { Task } from '../../core/models/Task';
 
 
 export class TaskStateModel {
@@ -17,6 +16,8 @@ export class TaskStateModel {
     checkedTasks: []
   }
 })
+
+
 
 
 export class TaskState {

@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { AddTask } from '../../../store/actions/task.action';
 
 
-import { AddTask } from '../../actions/task.action';
+
+
 
 @Component({
   selector: 'app-create',

@@ -4,7 +4,11 @@
 </head>
 <body>
 
-<app-create></app-create>
-<app-index></app-index>
+<nav>
+  <a class="back" routerLink="">Home</a>
+  <a class="marvel" routerLink="heroes"><img src="../assets/img/avengers.svg" alt=""></a>
+</nav>
+
+<router-outlet></router-outlet>
 </body>
 </html>
